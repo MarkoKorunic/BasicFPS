@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public EnemySO enemySO;
     [SerializeField] public EnemyModel enemyModel;
     
-    public float health;
+    private float health;
 
     public delegate void OnHealthChange();
     public static event OnHealthChange HealthDrop;
