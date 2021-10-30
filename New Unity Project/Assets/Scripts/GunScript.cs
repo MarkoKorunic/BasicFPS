@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
+    
+    [SerializeField]public Camera FPSCamera;
     public float damage = 10f;
     public float range = 100f;
-    [SerializeField]public Camera FPSCamera;
-   
-
 
     void Update()
     {
@@ -20,7 +19,6 @@ public class GunScript : MonoBehaviour
 
     void Shoot()
     {
-
         RaycastHit hit;
         if(Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, range))
         {
