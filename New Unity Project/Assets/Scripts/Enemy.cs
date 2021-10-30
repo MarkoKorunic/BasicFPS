@@ -21,8 +21,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        
-       
         if (health <= 0f)
         {
             enemyModel.EnemyDeath();
@@ -31,6 +29,7 @@ public class Enemy : MonoBehaviour
         if(health > 0f)
         {
             StartCoroutine(enemyModel.ChangeTargetColorOnHit());
+            Debug.Log("Enemy taken " + amount +" damage!");
         }
     }
 
