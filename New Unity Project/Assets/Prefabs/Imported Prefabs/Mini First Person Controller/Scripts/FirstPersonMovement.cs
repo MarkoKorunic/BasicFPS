@@ -4,6 +4,7 @@ using UnityEngine;
 public class FirstPersonMovement : MonoBehaviour
 {
     public float speed = 5;
+    public Transform playerPosition;
 
     [Header("Running")]
     public bool canRun = true;
@@ -25,6 +26,7 @@ public class FirstPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        playerPosition = GetComponent<Transform>();
         // Update IsRunning from input.
         IsRunning = canRun && Input.GetKey(runningKey);
 
