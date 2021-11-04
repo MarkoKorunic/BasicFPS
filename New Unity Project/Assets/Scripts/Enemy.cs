@@ -7,35 +7,33 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] public EnemySO enemySO;
     [SerializeField] public EnemyModel enemyModel;
-    
+
     private float health;
-
-    public delegate void OnHealthChange();
-    public static event OnHealthChange HealthDrop;
-
+    private float size;
     private void Start()
     {
-        enemyModel = new EnemyModel();
+        size = (float)enemySO.enemySize;
+        SetEnemySize(size);
         health = enemySO.health;
     }
-    public void TakeDamage(float amount)
+   
+    public void TakeDamage(float damageAmount)
     {
-        health -= amount;
+        health -= damageAmount;
         if (health <= 0f)
         {
-            enemyModel.EnemyDeath();
+            Destroy(gameObject);
             Debug.Log("Enemy died!!");
         }
-        if(health > 0f)
+        if (health > 0f)
         {
             StartCoroutine(enemyModel.ChangeTargetColorOnHit());
-            Debug.Log("Enemy taken " + amount +" damage!");
+            Debug.Log("Enemy taken " + damageAmount + " damage!");
         }
     }
-
     
-
-   
-    
-    
+    void SetEnemySize(float size)
+    {
+        gameObject.transform.localScale += new Vector3(size,size,size);
+    }
 }
