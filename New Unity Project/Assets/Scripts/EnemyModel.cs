@@ -1,11 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyModel : MonoBehaviour
 {
-    Rigidbody rigidbody;
     Renderer renderer;
+    [SerializeField] Enemy enemy;
     
 
     private Color hitColor = Color.red;
@@ -16,14 +17,9 @@ public class EnemyModel : MonoBehaviour
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
         renderer = GetComponent<Renderer>();
     }
 
-    public void EnemyDeath()
-    {
-        rigidbody.useGravity = true;
-    }
 
     public IEnumerator ChangeTargetColorOnHit()
     {
@@ -32,4 +28,9 @@ public class EnemyModel : MonoBehaviour
         renderer.material.color = baseColor;
     }
 
+
+    public void DamageRecieved(float damage)
+    {
+        enemy.TakeDamage(damage);
+    }
 }

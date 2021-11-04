@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94a1ab86801d3d49b1c23f74a3eeb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FPSCamera: {fileID: 0}
+  FPSCamera: {fileID: 20437472682476688}
   damage: 10
   range: 100
 --- !u!1001 &9181052030765700906

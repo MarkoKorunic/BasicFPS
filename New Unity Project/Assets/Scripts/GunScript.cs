@@ -23,12 +23,12 @@ public class GunScript : MonoBehaviour
         if(Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, range))
         {
             Debug.Log("You shoot " + hit.transform.name);
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            EnemyModel enemyModel = hit.transform.GetComponent<EnemyModel>();
 
-            if(enemy != null)
+            if (enemyModel != null)
             {
-                enemy.TakeDamage(damage);
-            }
+                enemyModel.DamageRecieved(damage);
+            }            
         }
     }
 }
