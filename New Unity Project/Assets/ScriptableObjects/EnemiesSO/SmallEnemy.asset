@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d13ab1b7943ac5647bbabf1e8b3cab7f, type: 3}
-  m_Name: BasicEnemy
+  m_Name: SmallEnemy
   m_EditorClassIdentifier: 
   enemyName: Basic
   health: 50
-  enemySize: 1
+  enemySize: 0

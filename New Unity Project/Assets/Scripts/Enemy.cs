@@ -9,9 +9,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] public EnemyModel enemyModel;
 
     private float health;
-
+    private float size;
     private void Start()
     {
+        size = (float)enemySO.enemySize;
+        SetEnemySize(size);
         health = enemySO.health;
     }
    
@@ -30,4 +32,8 @@ public class Enemy : MonoBehaviour
         }
     }
     
+    void SetEnemySize(float size)
+    {
+        gameObject.transform.localScale += new Vector3(size,size,size);
+    }
 }
