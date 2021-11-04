@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        enemyModel = new EnemyModel();
+        enemyModel = GetComponent<EnemyModel>();
         health = enemySO.health;
     }
     public void TakeDamage(float amount)

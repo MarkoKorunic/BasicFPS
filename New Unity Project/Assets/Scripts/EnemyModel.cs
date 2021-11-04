@@ -6,6 +6,7 @@ public class EnemyModel : MonoBehaviour
 {
     Rigidbody rigidbody;
     Renderer renderer;
+    
 
     private Color hitColor = Color.red;
     private Color baseColor = Color.white;

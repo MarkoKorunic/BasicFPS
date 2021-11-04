@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b4948c77e342543afcbcfaf0effd70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 3493593237378017666}
 --- !u!1 &3493593237378017667
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,9 +273,9 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
 --- !u!114 &5794235810040469036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,3 +289,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  chaseRange: 5
