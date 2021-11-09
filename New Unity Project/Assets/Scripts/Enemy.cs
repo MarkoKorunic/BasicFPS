@@ -7,11 +7,15 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] public EnemySO enemySO;
     [SerializeField] public EnemyModel enemyModel;
-
+    [SerializeField] public List<EnemySO> enemies;
     private float health;
     private float size;
     private void Start()
     {
+        if (enemySO == null)
+            GetRandomEnemySO();
+
+
         size = (float)enemySO.enemySize;
         SetEnemySize(size);
         health = enemySO.health;
@@ -36,4 +40,13 @@ public class Enemy : MonoBehaviour
     {
         gameObject.transform.localScale += new Vector3(size,size,size);
     }
+
+    private EnemySO GetRandomEnemySO()
+    {
+        System.Random random = new System.Random();
+        int index = random.Next(enemies.Count);
+        return enemies[index];
+    }
+
+
 }

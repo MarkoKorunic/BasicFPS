@@ -8,13 +8,18 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 5f;
-
+    [SerializeField] GameObject player;
     NavMeshAgent navMeshAgent;
+    
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
 
     private void Start()
     {
+        if (target == null)
+            target = player.transform;
+            
+
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
