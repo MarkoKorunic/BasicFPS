@@ -473,10 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238e7fc829f34bf4c9bcd430321f9587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 11400000, guid: 2d65f80cd45fb06409e80921e6392b03, type: 2}
-  - {fileID: 11400000, guid: 33af97beb5ab2ef46a944e4bcaddda1c, type: 2}
-  - {fileID: 11400000, guid: d3559b214dbc59e4b9505fed7d24866f, type: 2}
+  enemies: []
   terrain: {fileID: 312302494}
   enemyPrefab: {fileID: 3493593237378017667, guid: a06fe18d2f46086418d4b8f45f3a7847, type: 3}
   yOffset: 0.5

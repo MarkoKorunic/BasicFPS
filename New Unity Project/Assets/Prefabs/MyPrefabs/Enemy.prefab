@@ -255,7 +255,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySO: {fileID: 0}
   enemyModel: {fileID: 3493593237204371597}
-  enemies: []
+  enemies:
+  - {fileID: 11400000, guid: 2d65f80cd45fb06409e80921e6392b03, type: 2}
+  - {fileID: 11400000, guid: 33af97beb5ab2ef46a944e4bcaddda1c, type: 2}
+  - {fileID: 11400000, guid: d3559b214dbc59e4b9505fed7d24866f, type: 2}
 --- !u!195 &694974674980180196
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         if (enemySO == null)
-            GetRandomEnemySO();
+            enemySO = GetRandomEnemySO();
 
 
         size = (float)enemySO.enemySize;
