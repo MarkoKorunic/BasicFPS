@@ -5,22 +5,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] public EnemySO enemySO;
     [SerializeField] public EnemyModel enemyModel;
     [SerializeField] public List<EnemySO> enemies;
+    
     private float health;
     private float size;
-    private void Start()
+
+    private void OnEnable()
     {
-        if (enemySO == null)
-            enemySO = GetRandomEnemySO();
-
-
-        size = (float)enemySO.enemySize;
-        SetEnemySize(size);
-        health = enemySO.health;
+        SetEnemyAttributes();
     }
-   
+
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
@@ -40,13 +35,19 @@ public class Enemy : MonoBehaviour
     {
         gameObject.transform.localScale += new Vector3(size,size,size);
     }
+    private void SetEnemyAttributes()
+    {
+        EnemySO enemySO = GetRandomEnemySO();
+        size = (float)enemySO.enemySize;
+        SetEnemySize(size);
+        health = enemySO.health;
+    }
 
-    private EnemySO GetRandomEnemySO()
+    public EnemySO GetRandomEnemySO()
     {
         System.Random random = new System.Random();
         int index = random.Next(enemies.Count);
         return enemies[index];
     }
-
 
 }

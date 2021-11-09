@@ -6,9 +6,9 @@ using System;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] Transform target;
     [SerializeField] float chaseRange = 5f;
-    [SerializeField] GameObject player;
+    public Transform target;
+    private GameObject targetObject;
     NavMeshAgent navMeshAgent;
     
     float distanceToTarget = Mathf.Infinity;
@@ -16,11 +16,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        if (target == null)
-            target = player.transform;
-            
-
         navMeshAgent = GetComponent<NavMeshAgent>();
+        targetObject = GameObject.FindGameObjectWithTag("Player");
+        target = targetObject.transform;
     }
 
     private void Update()
