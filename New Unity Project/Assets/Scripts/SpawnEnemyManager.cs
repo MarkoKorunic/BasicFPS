@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SpawnEnemyManager : MonoBehaviour
 {
-    [SerializeField] public List<EnemySO> enemies;
     [SerializeField] public Terrain terrain;
+    [SerializeField] public int enemyAmount;
     public GameObject enemyPrefab;
     public float yOffset = 0.5f;
 
@@ -28,7 +28,7 @@ public class SpawnEnemyManager : MonoBehaviour
 
     void generateObjectOnTerrain()
     {
-        for(var i = 1; i <=30; i++)
+        for(var i = 1; i <=enemyAmount; i++)
         {
             float randX = UnityEngine.Random.Range(xTerrainPos, xTerrainPos + terrainWidth);
             float randZ = UnityEngine.Random.Range(zTerrainPos, zTerrainPos + terrainLength);

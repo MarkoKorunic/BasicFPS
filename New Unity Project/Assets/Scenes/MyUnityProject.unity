@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 1785527034}
   - component: {fileID: 1785527033}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameManagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,8 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238e7fc829f34bf4c9bcd430321f9587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
   terrain: {fileID: 312302494}
+  enemyAmount: 100
   enemyPrefab: {fileID: 3493593237378017667, guid: a06fe18d2f46086418d4b8f45f3a7847, type: 3}
   yOffset: 0.5
 --- !u!4 &1785527034
