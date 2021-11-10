@@ -17,9 +17,6 @@ public class SpawnEnemyManager : MonoBehaviour
     private float xTerrainPos;
     private float zTerrainPos;
 
-   
-
-
     void Start()
     {
         terrainWidth = terrain.terrainData.size.x;

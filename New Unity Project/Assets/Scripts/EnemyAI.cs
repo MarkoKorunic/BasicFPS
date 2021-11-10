@@ -7,7 +7,9 @@ using System;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] float chaseRange = 5f;
+    public float damage = 5f;
     public Transform target;
+
     private GameObject targetObject;
     NavMeshAgent navMeshAgent;
     
@@ -16,6 +18,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        
         navMeshAgent = GetComponent<NavMeshAgent>();
         targetObject = GameObject.FindGameObjectWithTag("Player");
         target = targetObject.transform;
@@ -42,7 +45,7 @@ public class EnemyAI : MonoBehaviour
             ChaseTarget();
         }
 
-        if (distanceToTarget <= navMeshAgent.stoppingDistance)
+        if (navMeshAgent.remainingDistance <= 2)
         {
             AttackTarget();
         }
@@ -55,6 +58,8 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackTarget()
     {
+        if (target == null) return;
+        target.GetComponent<PlayerHealth>().TakeDamage(damage);
         Debug.Log("Enemy attacks player.");
     }
 
@@ -63,5 +68,4 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
-
 }
