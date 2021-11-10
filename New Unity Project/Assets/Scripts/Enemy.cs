@@ -7,7 +7,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] public EnemyModel enemyModel;
     [SerializeField] public List<EnemySO> enemies;
-    
+    [SerializeField] public EnemyAI enemyAI;
+
+    public float damage = 0f;
+
     private float health;
     private float size;
 

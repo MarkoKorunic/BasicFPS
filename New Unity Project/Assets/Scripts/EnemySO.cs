@@ -12,7 +12,7 @@ public class EnemySO : ScriptableObject
     [SerializeField] public string enemyName; 
     [SerializeField] public int health;
     [SerializeField] public EnemySizes enemySize;
-
+    [SerializeField] public float damage;
 
 
     public void Print()
