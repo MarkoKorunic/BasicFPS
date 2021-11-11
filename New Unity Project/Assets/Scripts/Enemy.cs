@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] public EnemyModel enemyModel;
-    [SerializeField] public List<EnemySO> enemies;
+    [SerializeField] public EnemySO[] enemies;
     [SerializeField] public EnemyAI enemyAI;
 
     public float damage = 0f;
@@ -48,9 +49,7 @@ public class Enemy : MonoBehaviour
 
     public EnemySO GetRandomEnemySO()
     {
-        System.Random random = new System.Random();
-        int index = random.Next(enemies.Count);
-        return enemies[index];
+        return enemies[UnityEngine.Random.Range(0, enemies.Length - 1)];
     }
 
 }
