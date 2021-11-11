@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float hitPoints = 100f;
+    public float currentHitPoints;
+    public const float maxHitPoints = 1000f;
+
+    private void Start()
+    {
+        currentHitPoints = maxHitPoints;
+    }
 
     public void TakeDamage(float damageAmount)
     {
-        hitPoints -= damageAmount;
-        if(hitPoints > 0)
+        currentHitPoints -= damageAmount;
+        if(currentHitPoints > 0)
         {
             Debug.Log("You recieved " + damageAmount + "damage.");
         }
 
-        if (hitPoints <= 0f)
+        if (currentHitPoints <= 0f)
         {
             Debug.Log("You are dead.");
         }
