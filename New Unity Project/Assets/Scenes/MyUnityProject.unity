@@ -486,8 +486,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 36.43, y: 20}
-  m_SizeDelta: {x: 280.7462, y: 40}
+  m_AnchoredPosition: {x: 35, y: 20}
+  m_SizeDelta: {x: 280, y: 40}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &776418759
 MonoBehaviour:
@@ -554,6 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 797512049}
   slider: {fileID: 776418759}
+  healthColor: {fileID: 42039899}
 --- !u!222 &776418761
 CanvasRenderer:
   m_ObjectHideFlags: 0

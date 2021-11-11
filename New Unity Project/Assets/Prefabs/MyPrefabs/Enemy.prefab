@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f9c964eec5989bd4fba620169ce9baea, type: 2}
+  - {fileID: 2100000, guid: 03eef1da974d4c04096df98b6f739ccf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,7 +296,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseRange: 15
   damage: 5
-  enemyAttributes: {fileID: 0}
   target: {fileID: 0}
 --- !u!136 &5230067687209009668
 CapsuleCollider:
