@@ -8,6 +8,7 @@ public class GunScript : MonoBehaviour
     
     [SerializeField]public Camera FPSCamera;
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] ParticleSystem bulletHitEffect;
     public float damage = 10f;
     public float range = 100f;
 
@@ -35,6 +36,7 @@ public class GunScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, range))
         {
+            PlayBulletHitImpact(hit);
             Debug.Log("You shoot " + hit.transform.name);
             EnemyModel enemyModel = hit.transform.GetComponent<EnemyModel>();
 
@@ -44,5 +46,11 @@ public class GunScript : MonoBehaviour
             }
             else return;
         }
+    }
+
+    private void PlayBulletHitImpact(RaycastHit raycastHit)
+    {
+        ParticleSystem hitImpact = Instantiate(bulletHitEffect, raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
+        Destroy(hitImpact, 1);
     }
 }
