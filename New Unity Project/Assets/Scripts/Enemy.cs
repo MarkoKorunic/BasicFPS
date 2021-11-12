@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] public EnemyModel enemyModel;
     [SerializeField] public EnemySO[] enemies;
     [SerializeField] public EnemyAI enemyAI;
+    [SerializeField] public AudioClip enemyDeathSound;
+    [SerializeField] AudioSource source;
 
     public float damage = 0f;
 
@@ -18,6 +20,7 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         SetEnemyAttributes();
+        source = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(float damageAmount)
@@ -25,7 +28,8 @@ public class Enemy : MonoBehaviour
         health -= damageAmount;
         if (health <= 0f)
         {
-            Destroy(gameObject);
+            source.PlayOneShot(enemyDeathSound);
+            Destroy(gameObject, 1.5f);
             Debug.Log("Enemy died!!");
         }
         if (health > 0f)

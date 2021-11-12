@@ -1625,7 +1625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrain: {fileID: 312302494}
-  enemyAmount: 200
+  enemyAmount: 300
   enemyPrefab: {fileID: 3493593237378017667, guid: a06fe18d2f46086418d4b8f45f3a7847, type: 3}
   yOffset: 0.8
 --- !u!4 &1785527034
