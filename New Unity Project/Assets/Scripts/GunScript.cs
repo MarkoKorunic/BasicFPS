@@ -9,9 +9,18 @@ public class GunScript : MonoBehaviour
     [SerializeField]public Camera FPSCamera;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] ParticleSystem bulletHitEffect;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField]public AudioClip gunShotAudio;
+
+
     public float damage = 10f;
     public float range = 100f;
 
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -22,6 +31,7 @@ public class GunScript : MonoBehaviour
 
     void Shoot()
     {
+        audioSource.PlayOneShot(gunShotAudio);
         PlayMuzzleFlash();
         ProccesRaycast();
     }
@@ -29,6 +39,11 @@ public class GunScript : MonoBehaviour
     private void PlayMuzzleFlash()
     {
         muzzleFlash.Play();
+    }
+
+    private void PlayGunAudioEffect()
+    {
+       
     }
 
     void ProccesRaycast()

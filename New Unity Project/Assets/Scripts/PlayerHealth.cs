@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] DeathHandler deathHandler;
+
     public float currentHitPoints;
     public const float maxHitPoints = 1000f;
 
@@ -22,7 +24,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHitPoints <= 0f)
         {
-            Debug.Log("You are dead.");
+            deathHandler.HandleDeath();
+
         }
        
     }
