@@ -40,12 +40,7 @@ public class GunScript : MonoBehaviour
     {
         muzzleFlash.Play();
     }
-
-    private void PlayGunAudioEffect()
-    {
-       
-    }
-
+    
     void ProccesRaycast()
     {
         RaycastHit hit;

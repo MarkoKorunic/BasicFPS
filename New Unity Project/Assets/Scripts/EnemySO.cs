@@ -14,7 +14,6 @@ public class EnemySO : ScriptableObject
     [SerializeField] public EnemySizes enemySize;
     [SerializeField] public float damage;
 
-
     public void Print()
     {
         Debug.Log(enemyName);
@@ -28,5 +27,4 @@ public enum EnemySizes
     Small=0,
     Medium=1,
     Large=2
-
 }
