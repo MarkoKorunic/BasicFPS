@@ -22,6 +22,7 @@ public class FirstPersonMovement : MonoBehaviour
     {
         // Get the rigidbody on this.
         rigidbody = GetComponent<Rigidbody>();
+        Time.timeScale = 1;
     }
 
     void FixedUpdate()

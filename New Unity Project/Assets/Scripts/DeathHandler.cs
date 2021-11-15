@@ -13,10 +13,9 @@ public class DeathHandler : MonoBehaviour
 
     public void HandleDeath()
     {
-        
         gameOverCanvas.enabled = true;
         Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
 }
