@@ -49,6 +49,7 @@ public class GunScript : MonoBehaviour
             PlayBulletHitImpact(hit);
             Debug.Log("You shoot " + hit.transform.name);
             EnemyModel enemyModel = hit.transform.GetComponent<EnemyModel>();
+            
 
             if (enemyModel != null)
             {

@@ -5,27 +5,11 @@ using UnityEngine;
 
 public class EnemyModel : MonoBehaviour
 {
-    Renderer renderer;
-    [SerializeField] Enemy enemy;
-    
-
-    private Color hitColor = Color.red;
-    private Color baseColor = Color.white;
-
-    private float hitColorChangeTimer = 0.5f;
-    private float enemyDeathFallTimer = 1.5f;
-
+    [SerializeField] public Enemy enemy;
+    [SerializeField] Animator animator;
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
-    }
 
-
-    public IEnumerator ChangeTargetColorOnHit()
-    {
-        renderer.material.color = hitColor;
-        yield return new WaitForSeconds(hitColorChangeTimer);
-        renderer.material.color = baseColor;
     }
 
 
