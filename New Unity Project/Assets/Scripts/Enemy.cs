@@ -28,9 +28,7 @@ public class Enemy : MonoBehaviour
         health -= damageAmount;
         if (health <= 0f)
         {
-            source.PlayOneShot(enemyDeathSound);
-            Destroy(gameObject, 1.5f);
-            Debug.Log("Enemy died!!");
+            EnemyDeath();
         }
         if (health > 0f)
         {
@@ -53,6 +51,14 @@ public class Enemy : MonoBehaviour
     public EnemySO GetRandomEnemySO()
     {
         return enemies[UnityEngine.Random.Range(0, enemies.Length - 1)];
+    }
+
+    void EnemyDeath()
+    {
+        source.PlayOneShot(enemyDeathSound);
+        enemyModel.animator.SetBool("Death", true);
+        Destroy(gameObject, 1.5f);
+        Debug.Log("Enemy died!!");
     }
 
 }
