@@ -55,9 +55,9 @@ public class Enemy : MonoBehaviour
 
     void EnemyDeath()
     {
-        source.PlayOneShot(enemyDeathSound);
         enemyModel.animator.SetBool("Death", true);
-        Destroy(gameObject, 1.5f);
+        source.PlayOneShot(enemyDeathSound);
+        Destroy(gameObject, 1f);
         Debug.Log("Enemy died!!");
     }
 
