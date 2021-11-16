@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: 15
+  enemyModel: {fileID: 1447924330397350651}
   damage: 5
   target: {fileID: 0}
 --- !u!82 &-2398667543721284120
@@ -190,20 +191,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1447924330397350651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6975137081580186497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b4948c77e342543afcbcfaf0effd70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 3493593237378017666}
-  animator: {fileID: 4043652065086387432}
 --- !u!136 &2284704566494437807
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -218,6 +205,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &1447924330397350651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975137081580186497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b4948c77e342543afcbcfaf0effd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3493593237378017666}
+  animator: {fileID: 4043652065086387432}
 --- !u!1001 &1435882119786312328
 PrefabInstance:
   m_ObjectHideFlags: 0

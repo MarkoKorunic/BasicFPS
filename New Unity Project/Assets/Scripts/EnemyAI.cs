@@ -7,6 +7,7 @@ using System;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] float chaseRange = 5f;
+    [SerializeField] EnemyModel enemyModel;
     public float damage = 5f;
     public Transform target;
 
@@ -18,7 +19,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        
         navMeshAgent = GetComponent<NavMeshAgent>();
         targetObject = GameObject.FindGameObjectWithTag("Player");
         target = targetObject.transform;
@@ -45,7 +45,7 @@ public class EnemyAI : MonoBehaviour
             ChaseTarget();
         }
 
-        if (navMeshAgent.remainingDistance <= 2)
+        if (navMeshAgent.remainingDistance <= 2.6f)
         {
             AttackTarget();
         }
@@ -53,12 +53,15 @@ public class EnemyAI : MonoBehaviour
 
     private void ChaseTarget()
     {
+        enemyModel.animator.SetBool("Attack", false);
+        enemyModel.animator.SetTrigger("Move");
         navMeshAgent.SetDestination(target.position);
     }
 
     private void AttackTarget()
     {
         if (target == null) return;
+        enemyModel.animator.SetBool("Attack", true);
         target.GetComponent<PlayerHealth>().TakeDamage(damage);
         Debug.Log("Enemy attacks player.");
     }

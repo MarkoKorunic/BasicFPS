@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyModel : MonoBehaviour
 {
     [SerializeField] public Enemy enemy;
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
     private void Start()
     {
 
