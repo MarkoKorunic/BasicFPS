@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioSource source;
 
     public float damage = 0f;
+    public float health;
 
-    private float health;
     private float size;
 
     private void OnEnable()
@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour
         }
         if (health > 0f)
         {
-            StartCoroutine(enemyModel.ChangeTargetColorOnHit());
             Debug.Log("Enemy taken " + damageAmount + " damage!");
         }
     }
