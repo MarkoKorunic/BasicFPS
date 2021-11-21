@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] public AudioClip enemyDeathSound;
     [SerializeField] AudioSource source;
 
-
     public HealthHandler healthHandler;
     public float initialHealth;
 
@@ -35,7 +34,6 @@ public class Enemy : MonoBehaviour
         gameObject.transform.localScale += new Vector3(size,size,size);
     }
    
-
     public EnemySO GetRandomEnemySO()
     {
         return enemies[UnityEngine.Random.Range(0, enemies.Length - 1)];

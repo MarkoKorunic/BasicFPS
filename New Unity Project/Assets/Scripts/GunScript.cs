@@ -5,17 +5,14 @@ using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
-    
     [SerializeField]public Camera FPSCamera;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] ParticleSystem bulletHitEffect;
     [SerializeField] AudioSource audioSource;
     [SerializeField]public AudioClip gunShotAudio;
 
-
     public float damage = 10f;
     public float range = 100f;
-
 
     private void Start()
     {
@@ -49,11 +46,9 @@ public class GunScript : MonoBehaviour
             PlayBulletHitImpact(hit);
             Debug.Log("You shoot " + hit.transform.name);
             EnemyModel enemyModel = hit.transform.GetComponent<EnemyModel>();
-            
-
             if (enemyModel != null)
             {
-                enemyModel.DamageRecieved(damage);
+                enemyModel.enemy.TakeDamage(damage);
             }
             else return;
         }

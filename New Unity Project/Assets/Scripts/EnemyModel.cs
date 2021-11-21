@@ -11,10 +11,4 @@ public class EnemyModel : MonoBehaviour
     {
 
     }
-
-
-    public void DamageRecieved(float damage)
-    {
-        enemy.TakeDamage(damage);
-    }
 }
