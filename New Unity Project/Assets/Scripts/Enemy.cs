@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         SetEnemyAttributes();
+
         source = GetComponent<AudioSource>();
     }
 

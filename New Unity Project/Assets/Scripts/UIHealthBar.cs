@@ -5,19 +5,17 @@ using UnityEngine;
 
 public class UIHealthBar : MonoBehaviour
 {
-    [SerializeField] PlayerHealth playerHealth;
+    [SerializeField] Player player;
     public Slider slider;
     public Image healthColor;
 
-
-    private void Update()
+    void Update()
     {
         SetPlayerHealth();
-       
     }
     public void SetPlayerHealth()
     {
-        slider.value = playerHealth.currentHitPoints;
+        slider.value = player.healthHandler.health;
         HealthBarColorChange();
     }
 
