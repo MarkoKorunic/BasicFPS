@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3493593237378017669}
-  - component: {fileID: 3493593237378017666}
   - component: {fileID: 694974674980180196}
+  - component: {fileID: 3493593237378017666}
   - component: {fileID: 5794235810040469036}
   - component: {fileID: -2398667543721284120}
   m_Layer: 0
@@ -35,28 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3493593237378017666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3493593237378017667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7dccdb12820a94f9918b3e13eb59c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyModel: {fileID: 1447924330397350651}
-  enemies:
-  - {fileID: 11400000, guid: 2d65f80cd45fb06409e80921e6392b03, type: 2}
-  - {fileID: 11400000, guid: 33af97beb5ab2ef46a944e4bcaddda1c, type: 2}
-  - {fileID: 11400000, guid: d3559b214dbc59e4b9505fed7d24866f, type: 2}
-  enemyAI: {fileID: 5794235810040469036}
-  enemyDeathSound: {fileID: 8300000, guid: e57c71e73e8912a4d8add1acd1240d2e, type: 3}
-  source: {fileID: -2398667543721284120}
-  damage: 5
-  health: 0
 --- !u!195 &694974674980180196
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -79,6 +57,28 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 3
+--- !u!114 &3493593237378017666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493593237378017667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7dccdb12820a94f9918b3e13eb59c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyModel: {fileID: 1447924330397350651}
+  enemies:
+  - {fileID: 11400000, guid: 2d65f80cd45fb06409e80921e6392b03, type: 2}
+  - {fileID: 11400000, guid: 33af97beb5ab2ef46a944e4bcaddda1c, type: 2}
+  - {fileID: 11400000, guid: d3559b214dbc59e4b9505fed7d24866f, type: 2}
+  enemyAI: {fileID: 5794235810040469036}
+  enemyDeathSound: {fileID: 8300000, guid: e57c71e73e8912a4d8add1acd1240d2e, type: 3}
+  source: {fileID: -2398667543721284120}
+  damage: 5
+  health: 0
 --- !u!114 &5794235810040469036
 MonoBehaviour:
   m_ObjectHideFlags: 0
