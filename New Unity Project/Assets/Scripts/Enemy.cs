@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     {
         enemyModel.animator.SetBool("Death", true);
         source.PlayOneShot(enemyDeathSound);
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
         Debug.Log("Enemy died!!");
     }
 

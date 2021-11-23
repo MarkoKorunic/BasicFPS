@@ -7,6 +7,7 @@ public class HealthHandler
 {
     public Action<float> OnHealthChange;
     public float health { get; private set; }
+
     public HealthHandler(Action<float> onHealthChange, float startHealth)
     {
         OnHealthChange = onHealthChange;

@@ -11,6 +11,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Canvas>().worldCamera = Camera.main;
         enemy.healthHandler.OnHealthChange += HandleHealthChange;
     }
 
@@ -19,7 +20,7 @@ public class EnemyHealthBar : MonoBehaviour
         StartCoroutine(HealthPercentChange(healthPercent));
     }
 
-    private IEnumerator HealthPercentChange(float percent)
+    private IEnumerator HealthPercentChange(float health)
     {
         float preChangePercent = fillImage.fillAmount;
         float elapsed = 0f;
@@ -27,11 +28,10 @@ public class EnemyHealthBar : MonoBehaviour
         while (elapsed < updateSpeed)
         {
             elapsed += Time.deltaTime;
-            fillImage.fillAmount = Mathf.Lerp(preChangePercent, percent, elapsed / updateSpeed);
+            fillImage.fillAmount = Mathf.Lerp(preChangePercent, (float)health / (float)enemy.initialHealth, elapsed / updateSpeed);
             yield return null;
         }
-
-        fillImage.fillAmount = percent;
+        fillImage.fillAmount = (float)health / (float)enemy.initialHealth;
     }
 
     private void LateUpdate()
@@ -41,6 +41,6 @@ public class EnemyHealthBar : MonoBehaviour
     }
 
 
-
+    //(float) currentHealth / (float) maxHealth;
 
 }
