@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 33af97beb5ab2ef46a944e4bcaddda1c, type: 2}
   - {fileID: 11400000, guid: d3559b214dbc59e4b9505fed7d24866f, type: 2}
   enemyAI: {fileID: 5794235810040469036}
+  enemyHealthBar: {fileID: 4353606159435892681}
   enemyDeathSound: {fileID: 8300000, guid: e57c71e73e8912a4d8add1acd1240d2e, type: 3}
   source: {fileID: -2398667543721284120}
   initialHealth: 0
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: 15
-  enemyModel: {fileID: 1447924330397350651}
+  enemy: {fileID: 3493593237378017666}
   damage: 5
   target: {fileID: 0}
 --- !u!82 &-2398667543721284120

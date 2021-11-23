@@ -7,7 +7,7 @@ using System;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] float chaseRange = 5f;
-    [SerializeField] EnemyModel enemyModel;
+    [SerializeField] Enemy enemy;
     public float damage = 5f;
     public Transform target;
 
@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        enemy.enemyModel.animator.SetBool("Attack", false);
         navMeshAgent = GetComponent<NavMeshAgent>();
         targetObject = GameObject.FindGameObjectWithTag("Player");
         target = targetObject.transform;
@@ -44,7 +45,7 @@ public class EnemyAI : MonoBehaviour
 
     private void WalkInCircle()
     {
-        enemyModel.animator.SetTrigger("Walk");
+        enemy.enemyModel.animator.SetTrigger("Walk");
         transform.position += transform.forward * (navMeshAgent.speed * walkingSpeed) * Time.deltaTime;
         transform.Rotate(0f, -0.3f, 0f);
     }
@@ -64,15 +65,16 @@ public class EnemyAI : MonoBehaviour
 
     private void ChaseTarget()
     {
-        enemyModel.animator.SetBool("Attack", false);
-        enemyModel.animator.SetTrigger("Run");
+        enemy.enemyHealthBar.gameObject.SetActive(true);
         navMeshAgent.SetDestination(target.position);
+        enemy.enemyModel.animator.SetTrigger("Run");
+
     }
 
     private void AttackTarget()
     {
         if (target == null) return;
-        enemyModel.animator.SetBool("Attack", true);
+        enemy.enemyModel.animator.SetBool("Attack", true);
         target.GetComponent<Player>().TakeDamage(damage);
         Debug.Log("Enemy attacks player.");
     }

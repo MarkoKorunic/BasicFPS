@@ -11,6 +11,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void Start()
     {
+        gameObject.SetActive(false);
         GetComponent<Canvas>().worldCamera = Camera.main;
         enemy.healthHandler.OnHealthChange += HandleHealthChange;
     }
@@ -28,10 +29,10 @@ public class EnemyHealthBar : MonoBehaviour
         while (elapsed < updateSpeed)
         {
             elapsed += Time.deltaTime;
-            fillImage.fillAmount = Mathf.Lerp(preChangePercent, (float)health / (float)enemy.initialHealth, elapsed / updateSpeed);
+            fillImage.fillAmount = Mathf.Lerp(preChangePercent, (float)health / enemy.initialHealth, elapsed / updateSpeed);
             yield return null;
         }
-        fillImage.fillAmount = (float)health / (float)enemy.initialHealth;
+        fillImage.fillAmount = (float)health / enemy.initialHealth;
     }
 
     private void LateUpdate()
@@ -39,8 +40,4 @@ public class EnemyHealthBar : MonoBehaviour
         transform.LookAt(Camera.main.transform);
         transform.Rotate(0, 180, 0);
     }
-
-
-    //(float) currentHealth / (float) maxHealth;
-
 }

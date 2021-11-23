@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public EnemyModel enemyModel;
     [SerializeField] public EnemySO[] enemies;
     [SerializeField] public EnemyAI enemyAI;
+    [SerializeField] public EnemyHealthBar enemyHealthBar;
     [SerializeField] public AudioClip enemyDeathSound;
     [SerializeField] AudioSource source;
 
