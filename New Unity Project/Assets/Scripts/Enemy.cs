@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     private float size;
 
-    private void OnEnable()
+    private void Awake()
     {
         SetEnemyAttributes();
         healthHandler = new HealthHandler(this.OnHealthChange, this.initialHealth);
