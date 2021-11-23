@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 828965586882550030}
   - component: {fileID: 828965587456222486}
   - component: {fileID: 828965587456222487}
+  - component: {fileID: 8016407354227295955}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Player
@@ -591,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathHandler: {fileID: 828965586882550030}
-  currentHitPoints: 0
+  maxHitPoints: 1000
 --- !u!114 &828965586882550030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,6 +714,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a138d0686e5bdb2439d3b2d277286df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8016407354227295955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830736933356755950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69b2ffff9ca786479909052b7dfd2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoAmount: 10
 --- !u!1 &1174429256689911169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,6 +1970,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6497200857093033847, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
+      propertyPath: ammoSlot
+      value: 
+      objectReference: {fileID: 8016407354227295955}
     - target: {fileID: 6497200857093033847, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
       propertyPath: FPSCamera
       value: 

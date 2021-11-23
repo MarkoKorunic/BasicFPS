@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
-    [SerializeField]public Camera FPSCamera;
+    [SerializeField] public Camera FPSCamera;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] ParticleSystem bulletHitEffect;
     [SerializeField] AudioSource audioSource;
-    [SerializeField]public AudioClip gunShotAudio;
+    [SerializeField] public AudioClip gunShotAudio;
+    [SerializeField] public Ammunition ammoSlot;
 
     public float damage = 10f;
     public float range = 100f;
@@ -28,9 +29,16 @@ public class GunScript : MonoBehaviour
 
     void Shoot()
     {
-        audioSource.PlayOneShot(gunShotAudio);
-        PlayMuzzleFlash();
-        ProccesRaycast();
+        if (ammoSlot.GetCurrentAmmo() != 0)
+        {
+            audioSource.PlayOneShot(gunShotAudio);
+            PlayMuzzleFlash();
+            ProccesRaycast();
+            ammoSlot.ReduceCurrentAmmo();
+        }
+
+        else
+            Debug.Log("Ammo Depleted!!!");
     }
 
     private void PlayMuzzleFlash()
