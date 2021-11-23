@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
 
     private GameObject targetObject;
+    private float walkingSpeed = 0.3f;
     NavMeshAgent navMeshAgent;
     
     float distanceToTarget = Mathf.Infinity;
@@ -32,10 +33,20 @@ public class EnemyAI : MonoBehaviour
             EngageTarget();
         }
 
-        else if(distanceToTarget <= chaseRange)
+        else if (distanceToTarget <= chaseRange)
         {
             isProvoked = true;
         }
+
+        else
+            WalkInCircle();
+    }
+
+    private void WalkInCircle()
+    {
+        enemyModel.animator.SetTrigger("Walk");
+        transform.position += transform.forward * (navMeshAgent.speed * walkingSpeed) * Time.deltaTime;
+        transform.Rotate(0f, -0.3f, 0f);
     }
 
     private void EngageTarget()
@@ -54,7 +65,7 @@ public class EnemyAI : MonoBehaviour
     private void ChaseTarget()
     {
         enemyModel.animator.SetBool("Attack", false);
-        enemyModel.animator.SetTrigger("Move");
+        enemyModel.animator.SetTrigger("Run");
         navMeshAgent.SetDestination(target.position);
     }
 
