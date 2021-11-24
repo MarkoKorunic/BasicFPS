@@ -11,6 +11,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] public AudioClip gunShotAudio;
     [SerializeField] public Ammunition ammoSlot;
+    [SerializeField] UIAmmo uIAmmo;
 
     public float damage = 10f;
     public float range = 100f;
@@ -48,6 +49,7 @@ public class GunScript : MonoBehaviour
 
     void Reload()
     {
+        //StartCoroutine(uIAmmo.ReloadTimer());
         ammoSlot.ReloadGun();
     }
 
