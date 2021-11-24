@@ -25,6 +25,11 @@ public class GunScript : MonoBehaviour
         {
             Shoot();
         }
+
+        if (Input.GetButtonDown("Reload"))
+        {
+            Reload();
+        }
     }
 
     void Shoot()
@@ -39,6 +44,11 @@ public class GunScript : MonoBehaviour
 
         else
             Debug.Log("Ammo Depleted!!!");
+    }
+
+    void Reload()
+    {
+        ammoSlot.ReloadGun();
     }
 
     private void PlayMuzzleFlash()

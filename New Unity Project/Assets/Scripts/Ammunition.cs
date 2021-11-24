@@ -15,4 +15,9 @@ public class Ammunition : MonoBehaviour
     {
         ammoAmount--;
     }
+
+    public void ReloadGun()
+    {
+        ammoAmount = 10;
+    }
 }
