@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
     private GameObject targetObject;
     private float walkingSpeed = 0.3f;
-    NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
     
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;

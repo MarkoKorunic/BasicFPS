@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
     private void EnemyDeath()
     {
         enemyModel.animator.SetBool("Death", true);
+        enemyAI.navMeshAgent.isStopped = true;
         source.PlayOneShot(enemyDeathSound);
         Destroy(gameObject, 2f);
         Debug.Log("Enemy died!!");
