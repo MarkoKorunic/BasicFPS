@@ -8,21 +8,21 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] float chaseRange = 5f;
     [SerializeField] Enemy enemy;
+    [SerializeField] Transform target;
+
     public float damage = 5f;
-    public Transform target;
+    public float wanderRadius = 5f;
+    public float wanderTimer = 10f;
+    public NavMeshAgent navMeshAgent;
 
     private GameObject targetObject;
-    private float walkingSpeed = 0.3f;
-    public NavMeshAgent navMeshAgent;
-    
-    float distanceToTarget = Mathf.Infinity;
-    bool isProvoked = false;
+    private float distanceToTarget = Mathf.Infinity;
+    private bool isProvoked = false;
 
     private void Start()
     {
         enemy.enemyModel.animator.SetBool("Attack", false);
         navMeshAgent = GetComponent<NavMeshAgent>();
-        targetObject = GameObject.FindGameObjectWithTag("Player");
         target = targetObject.transform;
     }
 
@@ -40,14 +40,21 @@ public class EnemyAI : MonoBehaviour
         }
 
         else
-            WalkInCircle();
+            RandomWalk();
     }
 
-    private void WalkInCircle()
+    private void RandomWalk()
     {
         enemy.enemyModel.animator.SetTrigger("Walk");
-        transform.position += transform.forward * (navMeshAgent.speed * walkingSpeed) * Time.deltaTime;
-        transform.Rotate(0f, -0.3f, 0f);
+        float timer = wanderTimer;
+        timer += Time.deltaTime;
+
+        if (timer >= wanderTimer)
+        {
+            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+            navMeshAgent.SetDestination(newPos);
+            timer = 0;
+        }
     }
 
     private void EngageTarget()
@@ -77,6 +84,19 @@ public class EnemyAI : MonoBehaviour
         enemy.enemyModel.animator.SetBool("Attack", true);
         target.GetComponent<Player>().TakeDamage(damage);
         Debug.Log("Enemy attacks player.");
+    }
+
+    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    {
+        Vector3 randDirection = UnityEngine.Random.insideUnitSphere * dist;
+
+        randDirection += origin;
+
+        NavMeshHit navHit;
+
+        NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
+
+        return navHit.position;
     }
 
     private void OnDrawGizmosSelected()
