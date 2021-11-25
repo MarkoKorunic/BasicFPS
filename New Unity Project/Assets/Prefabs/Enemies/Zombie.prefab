@@ -169,8 +169,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseRange: 15
   enemy: {fileID: 3493593237378017666}
+  target: {fileID: 833132180888043590, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
   damage: 5
-  target: {fileID: 0}
+  wanderRadius: 15
+  wanderTimer: 0.5
+  navMeshAgent: {fileID: 0}
 --- !u!82 &-2398667543721284120
 AudioSource:
   m_ObjectHideFlags: 0

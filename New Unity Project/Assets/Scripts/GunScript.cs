@@ -49,7 +49,7 @@ public class GunScript : MonoBehaviour
 
     void Reload()
     {
-        //StartCoroutine(uIAmmo.ReloadTimer());
+        StartCoroutine(uIAmmo.ReloadTimer());
         ammoSlot.ReloadGun();
     }
 

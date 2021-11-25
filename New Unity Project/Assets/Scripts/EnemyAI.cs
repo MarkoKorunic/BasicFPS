@@ -8,9 +8,9 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] float chaseRange = 5f;
     [SerializeField] Enemy enemy;
-    [SerializeField] Transform target;
 
     public float damage = 5f;
+    public Transform target;
     public float wanderRadius = 5f;
     public float wanderTimer = 10f;
     public NavMeshAgent navMeshAgent;
@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     {
         enemy.enemyModel.animator.SetBool("Attack", false);
         navMeshAgent = GetComponent<NavMeshAgent>();
+        targetObject = GameObject.FindGameObjectWithTag("Player");
         target = targetObject.transform;
     }
 

@@ -31,7 +31,8 @@ public class UIAmmo : MonoBehaviour
         }
         reloadText.text = "";
         reloadImageBar.fillAmount = 0;
-        yield return null;
+        yield return new WaitForSeconds(fullReloadTime);
+        Debug.Log("Gun Reloaded");
     }
 
 }
