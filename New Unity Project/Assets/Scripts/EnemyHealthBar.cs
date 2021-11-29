@@ -20,7 +20,7 @@ public class EnemyHealthBar : MonoBehaviour
     {
         StartCoroutine(HealthPercentChange(healthPercent));
     }
-
+    
     private IEnumerator HealthPercentChange(float health)
     {
         float preChangePercent = fillImage.fillAmount;

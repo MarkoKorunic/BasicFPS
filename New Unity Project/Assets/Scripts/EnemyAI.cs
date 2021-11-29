@@ -14,10 +14,11 @@ public class EnemyAI : MonoBehaviour
     public float wanderRadius = 5f;
     public float wanderTimer = 10f;
     public NavMeshAgent navMeshAgent;
+    public bool isProvoked = false;
+
 
     private GameObject targetObject;
     private float distanceToTarget = Mathf.Infinity;
-    private bool isProvoked = false;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if (isProvoked)
+        if (isProvoked == true)
         {
             EngageTarget();
         }
@@ -54,7 +55,6 @@ public class EnemyAI : MonoBehaviour
         {
             Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
             navMeshAgent.SetDestination(newPos);
-            timer = 0;
         }
     }
 

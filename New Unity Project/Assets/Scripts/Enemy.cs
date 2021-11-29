@@ -21,12 +21,14 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         SetEnemyAttributes();
-        healthHandler = new HealthHandler(this.OnHealthChange, this.initialHealth);
+        healthHandler = new HealthHandler(OnHealthChange, initialHealth);
         source = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(float damageAmount)
     {
+        enemyHealthBar.gameObject.SetActive(true);
+        enemyAI.isProvoked = true;
         healthHandler.TakeDamage(damageAmount);
     }
     
