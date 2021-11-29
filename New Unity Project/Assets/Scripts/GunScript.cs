@@ -15,9 +15,11 @@ public class GunScript : MonoBehaviour
 
     public float damage = 10f;
     public float range = 100f;
+    public bool isReloading;
 
     private void Start()
     {
+        isReloading = false;
         audioSource = GetComponent<AudioSource>();
     }
     void Update()
@@ -35,7 +37,7 @@ public class GunScript : MonoBehaviour
 
     void Shoot()
     {
-        if (ammoSlot.GetCurrentAmmo() != 0)
+        if (ammoSlot.GetCurrentAmmo() != 0 && isReloading == false)
         {
             audioSource.PlayOneShot(gunShotAudio);
             PlayMuzzleFlash();
@@ -45,12 +47,13 @@ public class GunScript : MonoBehaviour
 
         else
             Debug.Log("Ammo Depleted!!!");
+
+
     }
 
     void Reload()
     {
         StartCoroutine(uIAmmo.ReloadTimer());
-        ammoSlot.ReloadGun();
     }
 
     private void PlayMuzzleFlash()

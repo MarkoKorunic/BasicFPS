@@ -13,7 +13,11 @@ public class UIAmmo : MonoBehaviour
 
     private float fullReloadTime = 3f;
     private float reloadTimeLeft;
-   
+
+    private void Start()
+    {
+        reloadImageBar.fillAmount = 0;
+    }
     void Update()
     {
         ammoCounter.text = Convert.ToString(gunScript.ammoSlot.GetCurrentAmmo());
@@ -21,18 +25,20 @@ public class UIAmmo : MonoBehaviour
 
     public IEnumerator ReloadTimer()
     {
-        reloadImageBar.fillAmount = 0;
+        gunScript.isReloading = true;
         reloadTimeLeft = fullReloadTime;
-        reloadText.text = "Reloading...";
-        while (reloadTimeLeft > 0)
+        if (reloadTimeLeft > 0)
         {
+            reloadText.text = "Reloading...";
             reloadTimeLeft -= Time.deltaTime;
             reloadImageBar.fillAmount = reloadTimeLeft / fullReloadTime;
         }
+        yield return new WaitForSeconds(3f);
         reloadText.text = "";
         reloadImageBar.fillAmount = 0;
-        yield return new WaitForSeconds(fullReloadTime);
         Debug.Log("Gun Reloaded");
+        gunScript.ammoSlot.ReloadGun();
+        gunScript.isReloading = false;
     }
 
 }

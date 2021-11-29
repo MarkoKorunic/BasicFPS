@@ -7294,7 +7294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoCounter: {fileID: 1260664909}
   gunScript: {fileID: 160494691}
-  reloadImageBar: {fileID: 0}
+  reloadImageBar: {fileID: 574235299}
   reloadText: {fileID: 440421269}
 --- !u!114 &1260664909
 MonoBehaviour:
@@ -13078,7 +13078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 833132180888043590, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 833132180888043590, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
       propertyPath: m_LocalPosition.z
