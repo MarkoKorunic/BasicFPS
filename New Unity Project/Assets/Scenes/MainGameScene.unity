@@ -2516,13 +2516,11 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: 
 --- !u!222 &440421270
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3503,7 +3501,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -10617,8 +10615,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
-  m_Intensity: 0.8
+  m_Color: {r: 0.33922213, g: 0.53660995, b: 0.7264151, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10628,9 +10626,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.07
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0.19
+    m_NormalBias: 0.26
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -13064,6 +13062,10 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1706747864}
+    - target: {fileID: 828965587082932852, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 830736933356755950, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
       propertyPath: m_Name
       value: First Person Controller
@@ -13116,10 +13118,6 @@ PrefabInstance:
       propertyPath: uIAmmo
       value: 
       objectReference: {fileID: 1260664908}
-    - target: {fileID: 8347602380454695263, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
 --- !u!1001 &1266255714143428206
