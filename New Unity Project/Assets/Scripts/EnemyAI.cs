@@ -10,15 +10,17 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Enemy enemy;
 
     public float damage = 5f;
-    public Transform target;
+    public float nearbyEnemyDetectionRadius = 5f;
     public float wanderRadius = 5f;
     public float wanderTimer = 10f;
-    public NavMeshAgent navMeshAgent;
     public bool isProvoked = false;
+    public Transform target;
+    public Enemy[] nearbyEnemies;
+    public NavMeshAgent navMeshAgent;
 
-
-    private GameObject targetObject;
     private float distanceToTarget = Mathf.Infinity;
+    private GameObject targetObject;
+    private GameObject nearbyEnemy;
 
     private void Start()
     {
@@ -73,10 +75,8 @@ public class EnemyAI : MonoBehaviour
 
     private void ChaseTarget()
     {
-        enemy.enemyHealthBar.gameObject.SetActive(true);
-        navMeshAgent.SetDestination(target.position);
         enemy.enemyModel.animator.SetTrigger("Run");
-
+        navMeshAgent.SetDestination(target.position);
     }
 
     private void AttackTarget()
@@ -90,13 +90,9 @@ public class EnemyAI : MonoBehaviour
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
         Vector3 randDirection = UnityEngine.Random.insideUnitSphere * dist;
-
         randDirection += origin;
-
         NavMeshHit navHit;
-
         NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
-
         return navHit.position;
     }
 
@@ -104,5 +100,10 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+
+    private void FindAndSaveNearbyEnemies()
+    {
+
     }
 }
