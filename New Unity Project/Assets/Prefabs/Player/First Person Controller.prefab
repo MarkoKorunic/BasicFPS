@@ -1986,6 +1986,26 @@ PrefabInstance:
       propertyPath: gunShotAudio
       value: 
       objectReference: {fileID: 8300000, guid: b5e95972d5782a14ea3390b5527239d0, type: 3}
+    - target: {fileID: 9181052030592235162, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181052030592323386, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181052030592323386, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181052030592323386, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
+      propertyPath: autoRandomSeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181052030592323386, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
 --- !u!1 &8424183087525376148 stripped

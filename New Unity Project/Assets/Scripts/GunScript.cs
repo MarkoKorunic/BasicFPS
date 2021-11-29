@@ -34,7 +34,7 @@ public class GunScript : MonoBehaviour
             Reload();
         }
     }
-
+    
     void Shoot()
     {
         if (ammoSlot.GetCurrentAmmo() != 0 && isReloading == false)
@@ -47,8 +47,6 @@ public class GunScript : MonoBehaviour
 
         else
             Debug.Log("Ammo Depleted!!!");
-
-
     }
 
     void Reload()
@@ -80,6 +78,6 @@ public class GunScript : MonoBehaviour
     private void PlayBulletHitImpact(RaycastHit raycastHit)
     {
         ParticleSystem hitImpact = Instantiate(bulletHitEffect, raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
-        Destroy(hitImpact, 1);
+        Destroy(hitImpact.gameObject,0.5f);
     }
 }

@@ -101,8 +101,11 @@ MonoBehaviour:
   bulletHitEffect: {fileID: 9181052030592323386}
   audioSource: {fileID: 0}
   gunShotAudio: {fileID: 0}
+  ammoSlot: {fileID: 0}
+  uIAmmo: {fileID: 0}
   damage: 10
   range: 100
+  isReloading: 0
 --- !u!1001 &9181052030547986863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,6 +243,18 @@ PrefabInstance:
     - target: {fileID: 19800006, guid: 5332791ebce075d4a9e56f4581e7fb47, type: 3}
       propertyPath: InitialModule.startSizeZ.minMaxState
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800014, guid: 5332791ebce075d4a9e56f4581e7fb47, type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800014, guid: 5332791ebce075d4a9e56f4581e7fb47, type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900014, guid: 5332791ebce075d4a9e56f4581e7fb47, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
