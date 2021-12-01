@@ -18,10 +18,11 @@ public class PlayerFPController : MonoBehaviour
     public float gunRange = 100f;
     public float interactingRange = 2f;
     public bool isReloading;
+    public bool canInteract;
 
     private void Start()
     {
-        uIInteractable.gameObject.SetActive(false);
+        canInteract = false;
         isReloading = false;
         audioSource = GetComponent<AudioSource>();
     }
@@ -43,12 +44,10 @@ public class PlayerFPController : MonoBehaviour
         }
 
         else
+        {
             CheckForInteractables();
-    }
-
-    private void LateUpdate()
-    {
-        uIInteractable.gameObject.SetActive(false);
+            ChangeInteractableUI(canInteract);
+        }
     }
 
 
@@ -120,9 +119,20 @@ public class PlayerFPController : MonoBehaviour
             InteractableObject interactableObject = hit.transform.GetComponent<InteractableObject>();
             if (interactableObject != null)
             {
-                uIInteractable.gameObject.SetActive(true);
+                canInteract = true;
             }
+            else
+                canInteract = false;
         }
     }
 
+    private void ChangeInteractableUI(bool interactable)
+    {
+        if (interactable)
+            uIInteractable.gameObject.SetActive(true);
+        else
+            uIInteractable.gameObject.SetActive(false);
+    }
+
+    
 }
