@@ -46,6 +46,11 @@ public class PlayerFPController : MonoBehaviour
             CheckForInteractables();
     }
 
+    private void LateUpdate()
+    {
+        uIInteractable.gameObject.SetActive(false);
+    }
+
 
     void Shoot()
     {
@@ -117,8 +122,6 @@ public class PlayerFPController : MonoBehaviour
             {
                 uIInteractable.gameObject.SetActive(true);
             }
-            else uIInteractable.gameObject.SetActive(false);
-            
         }
     }
 
