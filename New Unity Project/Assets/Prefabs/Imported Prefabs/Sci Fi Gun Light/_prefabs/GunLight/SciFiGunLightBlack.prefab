@@ -103,8 +103,10 @@ MonoBehaviour:
   gunShotAudio: {fileID: 0}
   ammoSlot: {fileID: 0}
   uIAmmo: {fileID: 0}
-  damage: 10
-  range: 100
+  uIInteractable: {fileID: 0}
+  gunDamage: 10
+  gunRange: 100
+  interactingRange: 2
   isReloading: 0
 --- !u!1001 &9181052030547986863
 PrefabInstance:
