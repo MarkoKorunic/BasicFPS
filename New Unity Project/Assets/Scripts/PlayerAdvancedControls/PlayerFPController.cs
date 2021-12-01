@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunScript : MonoBehaviour
+public class PlayerFPController : MonoBehaviour
 {
     [SerializeField] public Camera FPSCamera;
     [SerializeField] ParticleSystem muzzleFlash;
@@ -12,13 +12,16 @@ public class GunScript : MonoBehaviour
     [SerializeField] public AudioClip gunShotAudio;
     [SerializeField] public Ammunition ammoSlot;
     [SerializeField] UIAmmo uIAmmo;
+    [SerializeField] UIInteractableObject uIInteractable;
 
-    public float damage = 10f;
-    public float range = 100f;
+    public float gunDamage = 10f;
+    public float gunRange = 100f;
+    public float interactingRange = 2f;
     public bool isReloading;
 
     private void Start()
     {
+        uIInteractable.gameObject.SetActive(false);
         isReloading = false;
         audioSource = GetComponent<AudioSource>();
     }
@@ -33,15 +36,24 @@ public class GunScript : MonoBehaviour
         {
             Reload();
         }
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            Interact();
+        }
+
+        else
+            CheckForInteractables();
     }
-    
+
+
     void Shoot()
     {
         if (ammoSlot.GetCurrentAmmo() != 0 && isReloading == false)
         {
             audioSource.PlayOneShot(gunShotAudio);
             PlayMuzzleFlash();
-            ProccesRaycast();
+            GunRaycast();
             ammoSlot.ReduceCurrentAmmo();
         }
 
@@ -59,17 +71,17 @@ public class GunScript : MonoBehaviour
         muzzleFlash.Play();
     }
     
-    void ProccesRaycast()
+    void GunRaycast()
     {
         RaycastHit hit;
-        if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, range))
+        if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, gunRange))
         {
             PlayBulletHitImpact(hit);
             Debug.Log("You shoot " + hit.transform.name);
             EnemyModel enemyModel = hit.transform.GetComponent<EnemyModel>();
             if (enemyModel != null)
             {
-                enemyModel.enemy.TakeDamage(damage);
+                enemyModel.enemy.TakeDamage(gunDamage);
             }
             else return;
         }
@@ -80,4 +92,34 @@ public class GunScript : MonoBehaviour
         ParticleSystem hitImpact = Instantiate(bulletHitEffect, raycastHit.point, Quaternion.LookRotation(raycastHit.normal));
         Destroy(hitImpact.gameObject,0.5f);
     }
+
+    private void Interact()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, interactingRange))
+        {
+            InteractableObject interactableObject = hit.transform.GetComponent<InteractableObject>();
+            if (interactableObject != null)
+            {
+                interactableObject.DisplayMessage();
+            }
+            else return;
+        }
+    }
+
+    private void CheckForInteractables()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, interactingRange))
+        {
+            InteractableObject interactableObject = hit.transform.GetComponent<InteractableObject>();
+            if (interactableObject != null)
+            {
+                uIInteractable.gameObject.SetActive(true);
+            }
+            else uIInteractable.gameObject.SetActive(false);
+            
+        }
+    }
+
 }

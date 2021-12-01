@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIHealthBar : MonoBehaviour
 {
-    [SerializeField] Player player;
+    [SerializeField] PlayerHealth player;
     public Slider slider;
     public Image healthColor;
 

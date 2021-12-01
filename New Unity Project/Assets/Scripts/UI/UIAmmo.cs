@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UIAmmo : MonoBehaviour
 {
     [SerializeField] Text ammoCounter;
-    [SerializeField] GunScript gunScript;
+    [SerializeField] PlayerFPController gunScript;
     [SerializeField] Image reloadImageBar;
     [SerializeField] Text reloadText;
 

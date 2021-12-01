@@ -83,7 +83,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (target == null) return;
         enemy.enemyModel.animator.SetBool("Attack", true);
-        target.GetComponent<Player>().TakeDamage(damage);
+        target.GetComponent<PlayerHealth>().TakeDamage(damage);
         Debug.Log("Enemy attacks player.");
     }
 
