@@ -22228,6 +22228,10 @@ PrefabInstance:
       propertyPath: interactingRange
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8016407354227295955, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
+      propertyPath: ammoAmount
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8347602380458880921, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
       propertyPath: m_CastShadows
       value: 0
