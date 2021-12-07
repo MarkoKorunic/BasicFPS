@@ -20,7 +20,14 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private float defaultVolume = 0.5f;
 
+    [Header("Gameplay Settings")]
+    [SerializeField] private TMP_Text controllerSensitivityValue = null;
+    [SerializeField] private Slider controllerSensitivitySlider = null;
+    [SerializeField] private float defaultSensitivity = 0.5f;
+    public float mainControllerSensitivity = 0.5f;
 
+    [Header("Toggle Settings")]
+    [SerializeField] private Toggle invertYToggle = null;
 
     public void NewGameDialogueYes()
     {
@@ -59,11 +66,24 @@ public class MenuController : MonoBehaviour
         StartCoroutine(ConfirmationBox());
     }
 
-    public void VolumeReset()
+    public void ResetButton(string menuType)
     {
-        AudioListener.volume = defaultVolume;
-        volumeSlider.value = defaultVolume;
-        volumeTextValue.text = defaultVolume.ToString("0.0");
+        if(menuType == "Sound")
+        {
+            AudioListener.volume = defaultVolume;
+            volumeSlider.value = defaultVolume;
+            volumeTextValue.text = defaultVolume.ToString("0.0");
+            VolumeApply();
+        }
+
+        if(menuType == "Gameplay")
+        {
+            controllerSensitivityValue.text = defaultSensitivity.ToString("0.0");
+            controllerSensitivitySlider.value = defaultSensitivity;
+            mainControllerSensitivity = defaultSensitivity;
+            invertYToggle.isOn = false;
+            GameplayApply();
+        }
     }
 
     public IEnumerator ConfirmationBox()
@@ -71,6 +91,28 @@ public class MenuController : MonoBehaviour
         confirmationPrompt.SetActive(true);
         yield return new WaitForSeconds(1);
         confirmationPrompt.SetActive(false);
+    }
+
+    public void SerControllerSensitivity(float sensitivity)
+    {
+        mainControllerSensitivity = sensitivity;
+        controllerSensitivityValue.text = sensitivity.ToString("0.0");
+    }
+
+    public void GameplayApply()
+    {
+        if (invertYToggle.isOn)
+        {
+            PlayerPrefs.SetFloat("masterInvertY", 1);
+        }
+
+        else
+        {
+            PlayerPrefs.SetFloat("masterInvertY", 0);
+        }
+
+        PlayerPrefs.SetFloat("masterSensitivity", mainControllerSensitivity);
+        StartCoroutine(ConfirmationBox());
     }
 }
 
