@@ -7,6 +7,7 @@ using TMPro;
 
 public class MenuController : MonoBehaviour
 {
+
     [Header("Levels to load")]
     [SerializeField] private GameObject noSavedGameDialogue = null;
     public string newGameLoad;
@@ -29,6 +30,53 @@ public class MenuController : MonoBehaviour
     [Header("Toggle Settings")]
     [SerializeField] private Toggle invertYToggle = null;
 
+    [Header("Graphic Settings")]
+    [SerializeField] private Slider brightnessSlider = null;
+    [SerializeField] private TMP_Text brightnessTextValue = null;
+    [SerializeField] private float defaultBrightness = 1f;
+
+    [Space(10)]
+    [SerializeField] private TMP_Dropdown qualityDropdown;
+    [SerializeField] private Toggle fullScreenToggle;
+
+    private int qualityLvl;
+    private bool isFullscreen;
+    private float brightnessLvl;
+
+    [Header("Resolution dropdowns")]
+    public TMP_Dropdown resolutionDropdown;
+    private Resolution[] resolutions;
+
+
+    public void Start()
+    {
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+        int currentResolutionIndex = 0;
+
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+            {
+                currentResolutionIndex = 1;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
+
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
     public void NewGameDialogueYes()
     {
         SceneManager.LoadScene(newGameLoad);
@@ -66,25 +114,7 @@ public class MenuController : MonoBehaviour
         StartCoroutine(ConfirmationBox());
     }
 
-    public void ResetButton(string menuType)
-    {
-        if(menuType == "Sound")
-        {
-            AudioListener.volume = defaultVolume;
-            volumeSlider.value = defaultVolume;
-            volumeTextValue.text = defaultVolume.ToString("0.0");
-            VolumeApply();
-        }
-
-        if(menuType == "Gameplay")
-        {
-            controllerSensitivityValue.text = defaultSensitivity.ToString("0.0");
-            controllerSensitivitySlider.value = defaultSensitivity;
-            mainControllerSensitivity = defaultSensitivity;
-            invertYToggle.isOn = false;
-            GameplayApply();
-        }
-    }
+   
 
     public IEnumerator ConfirmationBox()
     {
@@ -113,6 +143,68 @@ public class MenuController : MonoBehaviour
 
         PlayerPrefs.SetFloat("masterSensitivity", mainControllerSensitivity);
         StartCoroutine(ConfirmationBox());
+    }
+
+    public void SetBrightness(float brightness)
+    {
+        brightnessLvl = brightness;
+        brightnessTextValue.text = brightness.ToString("0.0");
+    }
+    
+    public void SetFullscreen(bool fulllscreen)
+    {
+        isFullscreen = fulllscreen;
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        qualityLvl = qualityIndex;
+    }
+
+    public void GraphicsApply()
+    {
+        PlayerPrefs.SetFloat("masterBrightness", brightnessLvl);
+        PlayerPrefs.SetInt("masterQuality", qualityLvl);
+        QualitySettings.SetQualityLevel(qualityLvl);
+        PlayerPrefs.SetInt("masterFullscreen", (isFullscreen ? 1 : 0));
+        Screen.fullScreen = isFullscreen;
+        StartCoroutine(ConfirmationBox());
+    }
+
+    public void ResetButton(string menuType)
+    {
+        if(menuType == "Graphics")
+        {
+            brightnessSlider.value = defaultBrightness;
+            brightnessTextValue.text = defaultBrightness.ToString("0.0");
+            qualityDropdown.value = 1;
+            QualitySettings.SetQualityLevel(1);
+
+            fullScreenToggle.isOn = false;
+            Screen.fullScreen = false;
+
+            Resolution currentResolution = Screen.currentResolution;
+            Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreen);
+            resolutionDropdown.value = resolutions.Length;
+            GraphicsApply();
+        }
+
+        if (menuType == "Sound")
+        {
+            AudioListener.volume = defaultVolume;
+            volumeSlider.value = defaultVolume;
+            volumeTextValue.text = defaultVolume.ToString("0.0");
+            VolumeApply();
+        }
+
+        if (menuType == "Gameplay")
+        {
+            controllerSensitivityValue.text = defaultSensitivity.ToString("0.0");
+            controllerSensitivitySlider.value = defaultSensitivity;
+            mainControllerSensitivity = defaultSensitivity;
+            invertYToggle.isOn = false;
+            GameplayApply();
+        }
     }
 }
 
