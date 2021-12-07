@@ -410,7 +410,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 6.5358276, y: 0}
   m_SizeDelta: {x: 0, y: -14}
   m_Pivot: {x: 2.5, y: 0.5}
@@ -19742,7 +19742,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -20586,7 +20586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1948331297
 Transform:
   m_ObjectHideFlags: 0
@@ -21874,7 +21874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2049434731
 Transform:
   m_ObjectHideFlags: 0
@@ -23658,7 +23658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171061326012089063, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8016407354227295955, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
       propertyPath: ammoAmount
@@ -23698,7 +23698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8347602380461990549, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8424183087527604902, guid: b8f0e46ff96d6394b9b463f9b0172f63, type: 3}
       propertyPath: m_CastShadows
